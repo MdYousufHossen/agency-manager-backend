@@ -14,7 +14,7 @@ const teamSchema=mongoose.Schema({
         required:[true,"Please provide a description"],
         trim:true,
         minLength:[20,"description must be at least 20 characters."],
-        maxLength:[75, "Name is too large"]
+        maxLength:[75, "description is too large"]
     },
     user: [{ 
         _id:ObjectId,
