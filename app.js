@@ -13,6 +13,7 @@ const conversationRoute=require("./routes/conversation.route");
 const messageRoute=require("./routes/message.route");
 const teamRoute=require("./routes/team.route");
 const projectRoute=require("./routes/project.route");
+const taskRoute=require("./routes/task.route");
 
 
 app.get("/",(req,res)=>{
@@ -24,6 +25,7 @@ app.use("/api/v1/chat",messageRoute);
 app.use("/api/v1/chat",conversationRoute);
 app.use("/api/v1/team",teamRoute)
 app.use("/api/v1/project",projectRoute)
+app.use("/api/v1/task",taskRoute)
 /** catch 404 and forward to error handler */
 // app.use('*', (req, res) => {
 //     return res.status(404).json({

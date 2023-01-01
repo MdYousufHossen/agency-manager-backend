@@ -15,7 +15,7 @@ exports.createMessageService=async(messageInfo)=>{
     }
 exports.getMessageService=async(filters, queries)=>{
     // {conversationId:conversationId}
-    console.log(filters)
+  
     const messageRes=await Messages.find(filters)
     // .skip(queries.skip)
     // .limit(queries.limit)
@@ -23,7 +23,6 @@ exports.getMessageService=async(filters, queries)=>{
     .sort(queries.sortBy)
     const messageCount=await Messages.find(filters).count();
 
-    console.log("messageResponse===>",messageCount)
     return {
         totalCount:messageCount,
         messages:messageRes

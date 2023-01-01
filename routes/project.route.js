@@ -5,7 +5,7 @@ const router= express.Router();
 router.route("/")
     .post(projectController.createProject)
     .get(projectController.getProjects)
-    .patch(projectController.updateProject);
-
+    .patch(projectController.updateProject)
+    .delete(projectController.deleteProject);
 
 module.exports=router;

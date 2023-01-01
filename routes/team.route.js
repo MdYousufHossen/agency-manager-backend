@@ -4,7 +4,9 @@ const router= express.Router();
 
 router.route("/")
     .post(teamController.createTeam)
-    .get(teamController.getTeam);
+    .get(teamController.getTeam)
+    .patch(teamController.updateTeam)
+    .delete(teamController.deleteTeam);
 
 
 module.exports=router;

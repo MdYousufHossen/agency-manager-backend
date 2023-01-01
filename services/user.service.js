@@ -6,7 +6,6 @@ exports.signupService=async(userInfo)=>{
 };
 
 exports.findUserByEmail=async(email)=>{
-    console.log(email,"email")
     return await User.findOne({email});
 }
 exports.findUsers=async()=>{

@@ -34,7 +34,6 @@ try{
 
 exports.getConversationalUser=async(req,res)=>{
     try{
-        console.log(req.params.user)
         const conversationalUser= await getConversationalUserService(req.body)
         res.status(200).json({
             status:"success",

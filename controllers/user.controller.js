@@ -11,7 +11,7 @@ exports.signup=async(req,res)=>{
             message:"Successfully signed up"
         })
     }catch(error){
-        console.log(error)
+      
         res.status(500).json({
             status:"fail",
             error,
@@ -61,7 +61,7 @@ exports.login=async(req,res)=>{
             }
         })
     }catch(error){
-        console.log(error)
+     
         res.status(500).json({
             status:"fail",
             error,

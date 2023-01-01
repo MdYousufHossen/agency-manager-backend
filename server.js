@@ -36,7 +36,6 @@ global.io= io;
 let interval;
 io.on("connection", async(socket) => {
   console.log("Connected: " + socket.id);
-  console.log("dkfj")
 
   socket.on("disconnect", () => {
     console.log("Disconnected: " + socket.userId);

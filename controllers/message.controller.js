@@ -38,13 +38,13 @@ try{
       // price,qunatity   -> 'price quantity'
       const sortBy = req.query.sort.split(',').join(' ')
       queries.sortBy = sortBy
-      console.log(sortBy);
+     
     }
 
     if (req.query.fields) {
       const fields = req.query.fields.split(',').join(' ')
       queries.fields = fields
-      console.log(fields);
+     
     }
 
     if (req.query.page) {

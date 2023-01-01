@@ -15,3 +15,8 @@ exports.updatedProjectService=async(projectId,status)=>{
     const projectRes=  await Project.updateOne({_id:projectId},{status:status.status},{ runValidators: true })
     return projectRes;
 }
+
+exports.deleteProjectService=async(projectId)=>{
+    const project=await Project.deleteOne({_id:projectId})
+    return project;
+}

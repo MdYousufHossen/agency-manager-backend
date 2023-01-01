@@ -20,7 +20,6 @@ module.exports=async(req,res,next)=>{
 
         const decoded=await promisify(jwt.verify)(token,process.env.TOKEN_SECRET);
         req.user=decoded
-        console.log(decoded,"decodedddd")
         next();
     }catch(error){
         res.status(403).json({

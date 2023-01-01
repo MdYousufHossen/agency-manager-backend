@@ -1,12 +1,13 @@
-const { createProjectService, getProjectsService, updatedProjectService, deleteProjectService } = require("../services/project.service")
+
+const { createTaskService, getTaskService, updatedTaskService, deleteTaskService } = require("../services/task.service")
 
 
-exports.createProject=async(req,res)=>{
+exports.createTask=async(req,res)=>{
     try{
-      const projectRes=  await createProjectService(req.body)
+      const taskRes=  await createTaskService(req.body)
         res.status(200).json({
             status:"success",
-            data:projectRes,
+            data:taskRes,
             message:"Successfully sended"
         })
     }catch(error){
@@ -17,12 +18,12 @@ exports.createProject=async(req,res)=>{
     }
     }
     
-exports.getProjects=async(req,res)=>{
+exports.getTask=async(req,res)=>{
     try{
-        const projects= await getProjectsService()
+        const task= await getTaskService()
         res.status(200).json({
             status:"success",
-            data:projects
+            data:task
         })
     }catch(error){
         res.status(500).json({
@@ -32,12 +33,12 @@ exports.getProjects=async(req,res)=>{
     }
     }
 
-exports.updateProject=async(req,res)=>{
+exports.updateTask=async(req,res)=>{
     try{
-        const projects= await updatedProjectService(req.query.id,req.body)
+        const task= await updatedTaskService(req.query.id,req.body)
         res.status(200).json({
             status:"success",
-            data:projects
+            data:task
         })
     }catch(error){
         res.status(500).json({
@@ -47,12 +48,12 @@ exports.updateProject=async(req,res)=>{
     }
     }
 
-    exports.deleteProject=async(req,res)=>{
+    exports.deleteTask=async(req,res)=>{
         try{
-            const projects= await deleteProjectService(req.query.id)
+            const task= await deleteTaskService(req.query.id)
             res.status(200).json({
                 status:"success",
-                data:projects
+                data:task
             })
         }catch(error){
             res.status(500).json({
