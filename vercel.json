@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/**/*": {
-      "runtime": "node@16.16.0"
-    }
-  }
-}
