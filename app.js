@@ -9,6 +9,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 //routes
 const userRoute=require("./routes/user.route");
+const profileRoute=require("./routes/profile.route");
 const conversationRoute=require("./routes/conversation.route");
 const messageRoute=require("./routes/message.route");
 const teamRoute=require("./routes/team.route");
@@ -21,6 +22,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/api/v1/user",userRoute);
+app.use("/api/v1/profile",profileRoute);
 app.use("/api/v1/chat",messageRoute);
 app.use("/api/v1/chat",conversationRoute);
 app.use("/api/v1/team",teamRoute)

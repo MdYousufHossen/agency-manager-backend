@@ -6,7 +6,10 @@ exports.createTeamService=async(teamInfo)=>{
 }
 
 exports.getTeamService=async()=>{
-    const teams=await Team.find()
+    const teams=await Team.find({}).populate({
+        path:'user',
+        select:"-password -confirmationToken -confirmationTokenExpires"
+    }).exec()
     return teams;
 }
 exports.updateTeamService=async(teamId,newMember)=>{

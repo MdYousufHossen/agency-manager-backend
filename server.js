@@ -39,7 +39,18 @@ io.on("connection", async(socket) => {
 
   socket.on("disconnect", () => {
     console.log("Disconnected: " + socket.userId);
+    socket.broadcast.emit("callEnded")
   });
+
+
+	socket.on("callUser", ({ userToCall, signalData, from, name }) => {
+		io.to(userToCall).emit("callUser", { signal: signalData, from, name });
+	});
+
+	socket.on("answerCall", (data) => {
+		io.to(data.to).emit("callAccepted", data.signal)
+	});
+
   if (interval) {
     clearInterval(interval);
 }

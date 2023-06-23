@@ -1,4 +1,4 @@
-const { signupService, findUserByEmail, findUsers, findUser } = require("../services/user.service");
+const { signupService, findUserByEmail, findUsers, findUser,updatedUserService } = require("../services/user.service");
 const { generateToken } = require("../utils/token");
 
 exports.signup=async(req,res)=>{
@@ -128,6 +128,7 @@ exports.allUsers=async(req,res)=>{
         })
     }
 }
+
 exports.findUser=async(req,res)=>{
     try{
         const user=await findUser(req.query.email);
@@ -142,6 +143,22 @@ exports.findUser=async(req,res)=>{
             error: "Invalid users"
           });
        }
+    }catch(error){
+        res.status(500).json({
+            status:"failed",
+            error
+        })
+    }
+}
+
+exports.updateUser=async(req,res)=>{
+    try{
+        const updateRes= await updatedUserService(req);
+        res.status(200).json({
+            status:"success",
+            data:updateRes
+        });
+       
     }catch(error){
         res.status(500).json({
             status:"failed",

@@ -6,7 +6,10 @@ exports.createProjectService=async(projectInfo)=>{
 
 }
 exports.getProjectsService=async()=>{
-    const projectRes=await Project.find({});
+    const projectRes=await Project.find({}).populate({
+        path:'author',
+        select:"-password -confirmationToken -confirmationTokenExpires"
+    }).exec();
     return projectRes;
 
 }

@@ -4,53 +4,15 @@ const validator=require("validator");
 const messageSchema=mongoose.Schema({
 conversationId:ObjectId,
 sender:{
-  // _id:ObjectId,
-  email:{
-    type:String,
-    validate:[validator.isEmail,"Provide a valid Email"],
-    trim:true,
-    lowercase:true,
-    required:[true,"email is required!"]
-  },
-  role:{
-    type:String,
-    enum:["user","admin","manager"],
-    default:"user"
-  },
-  firstName:{
-    type:String,
-    required:[true,"first name is required"]
-  },
-  lastName:{
-    type:String,
-  required:[true,"last name is required"]
-  },
- 
-    },
-receiver: { 
-  _id:ObjectId,
-  email:{
-    type:String,
-    validate:[validator.isEmail,"Provide a valid Email"],
-    trim:true,
-    lowercase:true,
-    required:[true,"email is required!"]
-  },
-  role:{
-    type:String,
-    enum:["user","admin","manager"],
-    default:"user"
-  },
-  firstName:{
-    type:String,
-    required:[true,"first name is required"]
-  },
-  lastName:{
-    type:String,
-  required:[true,"last name is required"]
-  },
-  
-  },
+  type: ObjectId,
+  ref: "User",
+  required: [true,"Please provide a valid team id"],
+   },
+receiver: {
+  type: ObjectId,
+  ref: "User",
+  required: [true,"Please provide a valid team id"],
+   },
 message:{
     type:String,
     required:[true,"message is required"]

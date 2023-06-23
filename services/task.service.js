@@ -6,7 +6,10 @@ exports.createTaskService=async(taskInfo)=>{
 
 }
 exports.getTaskService=async()=>{
-    const taskRes=await Task.find({});
+    const taskRes=await Task.find({}).populate({
+            path:'author',
+            select:"-password -confirmationToken -confirmationTokenExpires"
+        }).exec()
     return taskRes;
 
 }
