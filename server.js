@@ -26,8 +26,6 @@ io.use(async (socket, next) => {
   try {
     const token = socket.handshake.query.conversationId;
     // const payload = await jwt.verify(token, process.env.SECRET);
-    
-    console.log(token,"token") 
     next();
   } catch (err) {console.log(err)}
 });

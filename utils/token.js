@@ -5,7 +5,7 @@ const payload={
     role:userInfo.role
 }
 const token=jwt.sign(payload,process.env.TOKEN_SECRET,{
-    expiresIn:"20s"
+    expiresIn:"7days"
 });
 return token
 }
